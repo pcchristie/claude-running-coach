@@ -17,7 +17,11 @@ Because of this it is recommended to use a suitable App to maintain your Claude 
 ### Shared Working Directory Components
 
 Your Shared Working Directory breaks down the following way.
-1. /Athletes folder. Your Athlete folder contains two files: ATHLETE.md contains information about you relevant to Claude Coach (physiological, training history, goals, injuries, preferences, etc.) AGENTS.md is the Coaching Plan itself (history, present, future). You can manage multiple athletes by having one folder per athlete (though the user will need to have Coaching rights to the other Athletes in Intervals.icu)
+1. /Athletes folder. Your Athlete folder contains two files: 
+   1. ATHLETE.md contains information about you relevant to Claude Coach (physiological, training history, goals, injuries, preferences, etc.).
+   2. AGENTS.md is the Coaching Plan itself (history, present, future). 
+ You can manage multiple athletes by having one folder per athlete (though the user will need to have Coaching rights to the other Athletes in Intervals.icu)
+
 2. Resources files containing a summary of knowledge for Claude Coach to draw upon. These contain information about training, plans, workouts, load management etc. as well as some information to help Claude Coach work better (e.g. the formatting required for Intervals.icu workouts to work properly, and sql queries to answer questions).
 3. Scripts to enable Claude Coach to work (i.e. pull data from Intervals, store your access key). 
 
@@ -51,7 +55,7 @@ claude-running-coach/
 
 ### 1. Install the Intervals.icu MCP server
 
-The skill relies on the Intervals.icu MCP server for all live data access
+The skill relies on the [Intervals.icu MCP server](https://github.com/mvilanova/intervals-mcp-server) for all live data access
 (pulling activities, wellness data, calendar events) and for pushing
 workouts to your calendar. Install it before anything else:
 
@@ -134,3 +138,10 @@ If a friend is coaching you through Claude (rather than self-coaching), they
 need coach access to your Intervals.icu data. Go to Intervals.icu →
 Settings → Coach and nominate their account. Their API key will then
 work for your data too.
+
+## Thank You
+Leveraging the great work done by 
+
+* [ColinEberhardt](https://github.com/ColinEberhardt/claude-coach)
+* [LightAxe](https://github.com/LightAxe/claude-running-coach)
+* [felixrieseberg](https://github.com/felixrieseberg/claude-coach)
