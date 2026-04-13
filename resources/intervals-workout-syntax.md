@@ -86,17 +86,14 @@ metric is informed, in priority order:
    applicable preference recorded in `ATHLETE.md` (e.g. "trains to HR only",
    "power meter always", "avoids pace targets on easy runs"), use that metric
    regardless of session type.
-2. **Metric availability.** If the athlete lacks reliable calibration data
-   for one metric (e.g. LTHR never tested, or threshold pace stale), prefer
-   the metric they have tested and current.
-3. **Session purpose (default when the above don't settle it).** Pick the
+2. **Session purpose (default when the above don't settle it).** Pick the
    metric that best matches what the session is trying to achieve. Use
    `resources/workouts.md` as the reference for session types and targets.
    Rough defaults in the absence of other signals: race-specific / tempo /
    interval sessions tend to be prescribed in Pace; aerobic development /
    long / recovery sessions tend to be prescribed in HR. These are
    tendencies, not rules — workouts.md is the source of truth for session
-   design.
+   design. 
 
 Mixing metrics within one workout is OK only as a last resort when conversion
 data isn't available; accept the load/chart limitations and document why.

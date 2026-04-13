@@ -1,5 +1,5 @@
 ---
-name: running-coach
+name: claude-running-coach
 description: >
   AI running coach grounded in live Intervals.icu data and persistent Obsidian
   notes. Trigger this skill for ANY running or training conversation: analysing
@@ -411,29 +411,22 @@ The Intervals.icu calendar is the plan. No separate tables.
 
 ### Keep Each Workout in a Single Metric Family (strong preference)
 
-When writing `workout_doc` content, prescribe every step in the **same metric family** -- all Pace, or all HR/LTHR, or all Power. Mixing metrics within one workout is technically valid syntax but Intervals.icu treats the workout as executing in a single primary metric for downstream calculations. Consequences of mixing:
+When writing `workout_doc` content, prescribe every step in the **same metric family** -- all Pace, or all HR/LTHR, or all Power. Mixing metrics within one workout is technically valid syntax but Intervals.icu treats the workout as executing in a single primary metric for downstream calculations. 
 
-- Event chart gaps (off-metric steps render blank)
-- Understated planned load (off-metric steps contribute zero)
-- Missing time-in-zone for off-metric steps
-- Partial post-activity compliance comparison
+Consequences of mixing are incorrect charting of an activity in Intervals, incorrect Load and Compliance data.
 
 This is not critical -- the workout will still export to Garmin and execute step-by-step -- but it degrades the data feedback loop that the whole coaching system depends on. Prefer conversion over mixing.
 
-**Practical conversion rule:** pick the metric that matches the workout's purpose, then convert the other steps using the athlete's calibration data:
+The athlete's `ATHLETE.md` Pace Zones and LTHR are the calibration inputs for conversion. If an athlete has neither populated, prioritise a short test or Intervals-derived estimate before committing workouts that need converted targets. 
 
-- Race-specific, HM/M-pace, tempo, threshold sessions -> **all Pace** (convert warmup/cooldown from HR % to Pace % using ATHLETE.md pace zones)
-- Aerobic development, long runs, recovery runs, easy days -> **all HR/LTHR** (HR discipline matters more than pace precision)
-- Mix only as a last resort when calibration data is missing. If you must mix, document why in the AGENTS.md decision log and accept the load/chart limitations.
-
-The athlete's `ATHLETE.md` Pace Zones and LTHR are the calibration inputs for conversion. If an athlete has neither populated, prioritise a short test or Intervals-derived estimate before committing workouts that need converted targets. See `resources/intervals-workout-syntax.md` for the full rationale and forum source.
+**When building workouts, always consult `resources/intervals-workout-syntax.md` which also contains more guidance on this rule**
 
 ---
 
 ## AGENTS.md Update Protocol
 
 Update after: weekly reviews, races, injury changes, block
-transitions, new PBs. Always append -- never overwrite history. Recent blocks
+transitions, new PBs. Always append -- never overwrite history (but summarising may be required occasionally). Recent blocks
 detailed; older blocks 2-3 sentences max.
 
 ---

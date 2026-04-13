@@ -4,11 +4,30 @@ An AI running coach powered by Claude, grounded in your live Intervals.icu
 training data. It tracks your fitness, plans workouts, manages injuries, and
 pushes structured sessions directly to your Garmin via Intervals.icu.
 
+## Overview 
+
+This skill is designed a little differently to most skills. Whereas most skills are designed to be one large directory installed installed to the AppData folder and never looked at again, this is designed with two components:
+1. A Claude Skill to drive the behaviour of Claude.
+2. A shared working directory to act as the documentation and source of truth for Claude Coach - readable and writeable by the User.
+
+As such, you install the .skill file as you would any other skill but maintain a Working Directory somewhere else on your machine. Both user and Claude continually update many of these documents as you progress.
+
+Because of this it is recommended to use a suitable App to maintain your Claude Coach folder (i.e. one that makes it easy to navigate, read and write your suite of .md files). I use Obsidian but Claude Code, VS Code or any IDE works, too.
+
+### Shared Working Directory Components
+
+Your Shared Working Directory breaks down the following way.
+1. /Athletes folder. Your Athlete folder contains two files: ATHLETE.md contains information about you relevant to Claude Coach (physiological, training history, goals, injuries, preferences, etc.) AGENTS.md is the Coaching Plan itself (history, present, future). You can manage multiple athletes by having one folder per athlete (though the user will need to have Coaching rights to the other Athletes in Intervals.icu)
+2. Resources files containing a summary of knowledge for Claude Coach to draw upon. These contain information about training, plans, workouts, load management etc. as well as some information to help Claude Coach work better (e.g. the formatting required for Intervals.icu workouts to work properly, and sql queries to answer questions).
+3. Scripts to enable Claude Coach to work (i.e. pull data from Intervals, store your access key). 
+
+You would expect to be reading/writing to #1 fairly often, #2 occasionally, and #3 only on setup.
+
 ## What's in this folder
 
 ```
 claude-running-coach/
-├── running-coach.skill    ← Install this in Cowork / Claude Code
+├── running-coach.skill    ← Install this in Claude (Cowork or Claude Code)
 ├── SKILL.md               ← The coaching instructions (reference copy)
 ├── resources/             ← Shared coaching frameworks (periodization, load management, etc.)
 ├── athletes/sample/       ← Templates for setting up your athlete profile
@@ -21,9 +40,9 @@ claude-running-coach/
 
 - Claude Desktop (Cowork) or Claude Code
 - [**Intervals.icu MCP server**](https://github.com/mvilanova/intervals-mcp-server) — this is what lets Claude read your training
-  data and push workouts to your calendar. Install it in Cowork (Settings →
+  data, push workouts to your calendar and perform analysis. Install it in Cowork (Settings →
   Connectors) or Claude Code (MCP config). Without it, the skill can't
-  access Intervals.icu at all.
+  access Intervals.icu at all. Claude can help you install & configure it.
 - Intervals.icu account (free tier works)
 - Python 3 with `requests` and `python-dotenv` packages
 - Strongly recommended: A Garmin or other device that syncs to Intervals.icu
