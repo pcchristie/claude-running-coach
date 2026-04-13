@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Sync / query runtime artefacts
+sync_done.flag
+sync_output.txt
+query_done.flag
+query_output.txt
+sync_warnings.log
+queries/_scratch.py
+
+# SQLite training data (per-athlete, not shared)
+*.db
+*.db-journal
+
+# Real athlete data — only the sample templates are tracked
+athletes/*/
+!athletes/sample/
+
+# IDE
+.vscode/
+.idea/
