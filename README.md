@@ -20,12 +20,14 @@ Your Shared Working Directory breaks down the following way.
 1. /Athletes folder. Your Athlete folder contains two files: 
    1. ATHLETE.md contains information about you relevant to Claude Coach (physiological, training history, goals, injuries, preferences, etc.).
    2. AGENTS.md is the Coaching Plan itself (history, present, future). 
- You can manage multiple athletes by having one folder per athlete (though the user will need to have Coaching rights to the other Athletes in Intervals.icu)
-
-2. Resources files containing a summary of knowledge for Claude Coach to draw upon. These contain information about training, plans, workouts, load management etc. as well as some information to help Claude Coach work better (e.g. the formatting required for Intervals.icu workouts to work properly, and sql queries to answer questions).
+2. Resources files containing a summary of knowledge for Claude Coach to draw upon. These contain information about
+   1. Running knowledge: Training, plans, workouts, load management etc. 
+   2. Technical information to help Claude Coach do its job - the formatting required for Intervals.icu workouts to work properly, and sql queries to answer questions.
 3. Scripts to enable Claude Coach to work (i.e. pull data from Intervals, store your access key). 
 
 You would expect to be reading/writing to #1 fairly often, #2 occasionally, and #3 only on setup.
+
+Note that you can manage multiple athletes by having one folder per athlete sitting under /athletes (though the primary user will need to have Coaching rights to the other Athletes in Intervals.icu)
 
 ## What's in this folder
 
